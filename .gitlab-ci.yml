@@ -22,7 +22,7 @@ deploy:
     - echo $GOOGLE_CLOUD_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
     - cat /tmp/$CI_PIPELINE_ID.json | docker login -u _json_key --password-stdin https://eu.gcr.io
   script:
-    - docker pull $IMAGE:CI_COMMIT_SHA
+    - docker pull $IMAGE:$CI_COMMIT_SHA
     - docker tag $IMAGE:$CI_COMMIT_SHA $GCR_IMAGE:latest
     - docker push $GCR_IMAGE
   after_script:
