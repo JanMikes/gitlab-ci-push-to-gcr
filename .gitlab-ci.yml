@@ -8,6 +8,7 @@ build:
   before_script:
     - echo $CI_BUILD_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
   script:
+    - docker pull $GITLAB_IMAGE || true
     - docker build --cache-from $GITLAB_IMAGE -t $GITLAB_IMAGE:$CI_COMMIT_SHA .
     - docker push $GITLAB_IMAGE
 

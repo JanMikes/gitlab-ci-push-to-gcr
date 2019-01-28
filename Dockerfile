@@ -1,1 +1,1 @@
-FROM php:alpine
+FROM alpine:3.7
