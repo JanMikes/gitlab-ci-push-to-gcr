@@ -1,5 +1,11 @@
 # Push to Google Cloud Registry via Gitlab CI
 
+This repository is to demonstrate workflow:
+- Build docker image in CI
+- Push it to Gitlab Registry (so we can run tests on it etc)
+- If everything is ok then push it to Google Cloud Registry (GCR) so we can use it in Google Cloud etc for Kubernetes
+
+
 ## Environment variables:
   - `GOOGLE_CLOUD_ACCOUNT` - google cloud service account credentials (see below how to get it)
   - `GITLAB_IMAGE` - where we push go Gitlab Registry
