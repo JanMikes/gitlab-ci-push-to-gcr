@@ -16,12 +16,11 @@ build:
 deploy:
   stage: deploy
   before_script:
+    # Login to Gitlab registry
     - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token registry.gitlab.com --password-stdin
-    - echo $GOOGLE_CLOUD_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
-    - cat /tmp/$CI_PIPELINE_ID.json | docker login -u _json_key --password-stdin https://eu.gcr.io
+    # Login to Google Cloud Registry
+    - echo $GOOGLE_CLOUD_ACCOUNT | docker login -u _json_key --password-stdin https://eu.gcr.io
   script:
     - docker pull $GITLAB_IMAGE:$CI_COMMIT_SHA
     - docker tag $GITLAB_IMAGE:$CI_COMMIT_SHA $GCR_IMAGE:latest
     - docker push $GCR_IMAGE
-  after_script:
-    - rm /tmp/$CI_PIPELINE_ID.json
