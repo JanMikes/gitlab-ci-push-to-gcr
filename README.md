@@ -30,4 +30,4 @@ I recommend setting `GOOGLE_CLOUD_ACCOUNT` via protected variables **Settings ->
 
 #### Notes
 
-- If you run into `Error: Cannot perform an interactive login from a non TTY device`, it is because you have mismatch of protected variable and branch (both has to have same state either protected or unprotected). https://gitlab.com/gitlab-com/support-forum/issues/3524#note_150577883
+- If you run into `Error: Cannot perform an interactive login from a non TTY device`, it is because you have mismatch of protected variable and branch (both must have the same state - either protected or unprotected). https://gitlab.com/gitlab-com/support-forum/issues/3524#note_150577883
