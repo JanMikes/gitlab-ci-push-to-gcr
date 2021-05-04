@@ -11,7 +11,7 @@ build:
   script:
     - docker pull $GITLAB_IMAGE || true # Allows us to use --cache-from
     - docker build --cache-from $GITLAB_IMAGE -t $GITLAB_IMAGE:$CI_COMMIT_SHA .
-    - docker push $GITLAB_IMAGE
+    - docker push $GITLAB_IMAGE:$CI_COMMIT_SHA
 
 deploy:
   stage: deploy
